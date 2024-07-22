@@ -5,12 +5,16 @@ restaurantes = [{'Nome':'Sushibar', 'Categoria':'Japonesa', 'Ativo':False},
                 {'Nome':'Cebolinha Food', 'Categoria':'Brasileira', 'Ativo':True}]
 
 def show_title():
+    ''' This function is responsible for display the title of the application'''
+
     print('''
 ░█▀▀▀█ ─█▀▀█ ░█▀▀█ ░█▀▀▀█ ░█▀▀█ 　 ░█▀▀▀ ▀▄░▄▀ ░█▀▀█ ░█▀▀█ ░█▀▀▀ ░█▀▀▀█ ░█▀▀▀█ 
 ─▀▀▀▄▄ ░█▄▄█ ░█▀▀▄ ░█──░█ ░█▄▄▀ 　 ░█▀▀▀ ─░█── ░█▄▄█ ░█▄▄▀ ░█▀▀▀ ─▀▀▀▄▄ ─▀▀▀▄▄ 
 ░█▄▄▄█ ░█─░█ ░█▄▄█ ░█▄▄▄█ ░█─░█ 　 ░█▄▄▄ ▄▀░▀▄ ░█─── ░█─░█ ░█▄▄▄ ░█▄▄▄█ ░█▄▄▄█\n''')
 
 def show_options():
+    ''' This function is responsible for display the options in the main menu '''
+
     print('Escolha uma opção: \n')
     print('1 - Cadastrar Restaurante')
     print('2 - Listar Restaurantes')
@@ -18,16 +22,21 @@ def show_options():
     print('4 - Sair \n')
 
 def exit_app():
+    ''' This function is responsible for closing the application if the user choose the 4 option in th main menu '''
+    
     os.system('cls')
-
     print('Finalizar App \n')
 
 def invalid_option():
+    ''' This function is responsible for display the invalid option message when its necessary '''
+
     print('Opção inválida \n')
 
     return_to_main_menu()
 
 def select_options(): 
+    ''' This function is responsible for send the screen to the selected option by the user '''
+
     try:
         selected_option = int(input('Digite a opção escolhida: \n'))
 
@@ -46,6 +55,8 @@ def select_options():
         invalid_option()
 
 def register_restaurant():
+    ''' This function is responsible for register a new restaurant in the application '''
+
     show_subtitle('Cadastro de Restaurantes')
     
     new_restaurant_name = input('Digite o nome do novo restaurante: ')
@@ -60,6 +71,8 @@ def register_restaurant():
     return_to_main_menu()
 
 def show_restaurants():
+    ''' This function is responsible for display the registered restaurants in the screen '''
+
     show_subtitle('Lista de Restaurantes')
     
     print(f'{'Nome do restaurante'.ljust(23)} | {'Categoria'.ljust(20)} | {'Status'.ljust(20)}')
@@ -74,10 +87,17 @@ def show_restaurants():
     return_to_main_menu()
 
 def return_to_main_menu():
+    ''' This function is responsible for returning the application to the main menu '''
+
     input('\nDigite uma tecla para voltar ao menu principal')
     main()
 
 def show_subtitle(text): 
+    ''' 
+        This function is responsible for writing the screen subtilte
+        Input: Subtitle text
+    '''
+
     os.system('cls')
     linha = '*' * (len(text))
     print(linha)
@@ -85,6 +105,10 @@ def show_subtitle(text):
     print(linha)
 
 def alter_restaurant_state():
+    ''' This function is responsible for alter a restaurant status 
+        Input: Name of the restaurant 
+    '''
+
     show_subtitle('Alterando estado do restaurante')
 
     restaurant_name = input('Digite o nome do restaurante a ser alterado: ')
