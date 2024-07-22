@@ -1,16 +1,43 @@
 # import this
+import os 
 
-print('''
+def show_title():
+    print('''
 ░█▀▀▀█ ─█▀▀█ ░█▀▀█ ░█▀▀▀█ ░█▀▀█ 　 ░█▀▀▀ ▀▄░▄▀ ░█▀▀█ ░█▀▀█ ░█▀▀▀ ░█▀▀▀█ ░█▀▀▀█ 
 ─▀▀▀▄▄ ░█▄▄█ ░█▀▀▄ ░█──░█ ░█▄▄▀ 　 ░█▀▀▀ ─░█── ░█▄▄█ ░█▄▄▀ ░█▀▀▀ ─▀▀▀▄▄ ─▀▀▀▄▄ 
 ░█▄▄▄█ ░█─░█ ░█▄▄█ ░█▄▄▄█ ░█─░█ 　 ░█▄▄▄ ▄▀░▀▄ ░█─── ░█─░█ ░█▄▄▄ ░█▄▄▄█ ░█▄▄▄█\n''')
 
-print('Escolha uma opção: \n')
-print('1 - Cadastrar Restaurante')
-print('2 - Listar Restaurante')
-print('3 - Ativar Restaurante')
-print('4 - Sair \n')
+def show_options():
+    print('Escolha uma opção: \n')
+    print('1 - Cadastrar Restaurante')
+    print('2 - Listar Restaurantes')
+    print('3 - Ativar Restaurante')
+    print('4 - Sair \n')
 
-selected_option = input('Digite a opção escolhida: \n')
+def exit_app():
+    os.system('cls')
 
-print(f'Você escolheu a opção: {selected_option}')
+    print('Finalizar App \n')
+
+def select_options():
+    selected_option = int(input('Digite a opção escolhida: \n'))
+
+    match selected_option:
+        case 1:
+            print('Cadastrar Restaurante')
+        case 2:
+            print('Listar Restaurantes')
+        case 3:
+            print('Ativar Restaurante')
+        case 4:
+            exit_app()
+        case _:
+            print('Opção inválida')
+
+def main():
+    show_title()
+    show_options()
+    select_options()
+
+if __name__ == '__main__':
+    main()
